@@ -4,18 +4,18 @@ Pipeline automatizado de integración continua (CI) para empaquetado seguro de m
 
 ---
 
-## 🎯 Arquitectura y Flujo del Pipeline
+## Arquitectura y Flujo del Pipeline
 
 El objetivo principal de este flujo es garantizar que ningún artefacto llegue a un registro de contenedores ni a producción con vulnerabilidades críticas o malas prácticas de seguridad:
 
-1. **Construcción Aislada:** Generación de la imagen del contenedor mediante Docker Buildx a partir de un Dockerfile optimizado y sin privilegios de administrador (*non-root*).
+1. **Construcción Aislada:** Generación de la imagen del contenedor mediante Docker Buildx a partir de un Dockerfile optimizado y sin privilegios de administrador.
 2. **Auditoría de Vulnerabilidades (Shift-Left):** Escaneo de capas del sistema operativo y dependencias de la aplicación utilizando Aqua Security Trivy.
-3. **Control de Artefactos:** Publicación y versionado semántico automatizado en GitHub Container Registry (`ghcr.io`) bajo autenticación efímera.
+3. **Control de Artefactos:** Publicación y versionado semántico automatizado en GitHub Container Registry (`ghcr.io`) bajo autenticación.
 4. **Infraestructura como Código (IaC):** Especificación modular en Terraform (`infra/main.tf`) preparada para aprovisionar el entorno serverless en Azure Container Apps dentro de la capa de consumo gratuito.
 
 ---
 
-## 🛠️ Stack Tecnológico
+## Stack Tecnológico
 
 | Componente | Tecnología | Rol en el Proyecto |
 | :--- | :--- | :--- |
@@ -28,7 +28,7 @@ El objetivo principal de este flujo es garantizar que ningún artefacto llegue a
 
 ---
 
-## 🔍 Fases del Flujo de Trabajo CI
+## Fases del Flujo de Trabajo CI
 
 El pipeline configurado en `.github/workflows/container-ci.yml` se activa ante cada `push` o `pull_request` sobre la rama `main`:
 
